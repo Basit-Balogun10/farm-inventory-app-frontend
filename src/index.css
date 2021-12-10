@@ -1,13 +1,69 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400&display=swap");
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+body {
+    font-family: "Poppins", sans-serif;
+    overflow: hidden;
+}
+
+.pro-menu-item.active {
+    background-color: #31c171;
+}
+
+.pro-inner-item {
+    font-weight: bold;
+    color: black;
+}
+
+.pro-sidebar .pro-menu.shaped .pro-menu-item > .pro-inner-item > .pro-icon-wrapper {
+    background-color: #62efb9;
+}
+
+.pro-sidebar .pro-menu.shaped .pro-menu-item.active > .pro-inner-item > span.pro-icon-wrapper {
+    background-color: #62efb9;
+}
+
+.pro-sidebar > .pro-sidebar-inner > .pro-sidebar-layout {background: white;}
+
+span.pro-item-content {}
+
+.pro-sidebar .pro-menu .pro-menu-item > .pro-inner-item:hover .pro-item-content {
+    color: #0b740b;
+}
+
+.pro-sidebar .pro-menu .pro-menu-item > .pro-inner-item:hover .pro-icon {
+    color: black;
+}
+
+.pro-sidebar .pro-menu > ul > .pro-sub-menu > .pro-inner-list-item {background-color: white;}
+
+.pro-sidebar .pro-menu > ul > .pro-sub-menu > .pro-inner-list-item div {background-color: whitesmoke;border-radius: 5%;}
+
+.pro-sidebar .pro-menu .pro-menu-item.active {
+    border-radius: 5%;
+}
+
+.pro-sidebar .pro-menu .pro-menu-item > .pro-inner-item:hover {
+    background-color: #cdf3e0;
+}
+
+.pro-sidebar .pro-menu.shaped .pro-menu-item > .pro-inner-item > span.pro-icon-wrapper {
+    background-color: #62efb9;
+}
+
+.pro-sidebar {
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+}
+
+.pro-sidebar .pro-menu > ul > .pro-sub-menu > .react-slidedown.pro-inner-list-item {
+    background-color: white;
 }
