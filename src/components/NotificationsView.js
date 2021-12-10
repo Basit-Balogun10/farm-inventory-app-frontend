@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import NotificationItem from "./NotificationItem";
 
 const NotificationsView = () => {
@@ -46,21 +46,29 @@ const NotificationsView = () => {
       "date_created": "28th November, 2021",
     },
 ]
+
+  const [myNotifications, setNotifications] = useState(notifications)
+  const [checkboxValue, setCheckboxValue] = useState(false)
+
+  const handleCheckboxChange = () => {
+    setCheckboxValue(!checkboxValue)
+    // setNotifications(myNotifications.map((notification) => {...notification, seen: true}))
+  }
   return (
     <>
       <div class="px-4">
         <h3 class="italic text-xs">Notifications with red backgrounds denote warnings, those with blue background confirm the conclusion of a week, while those with green backgrounds tell about healthy broilers</h3>
         <div className="flex justify-center items-center space-x-2">
-            <input type="checkbox" class="appearnce-none checked:bg-green-500 checked:border-transparent"/>
+            <input type="checkbox" class="appearnce-none checked:bg-green-500 checked:border-transparent" value={checkboxValue} onChange={handleCheckboxChange}/>
             <p>Mark all as read</p>
         </div>
               
       </div>
         <hr />
       {
-        notifications.map((notification, index) => (
+        myNotifications.map((notification, index) => (
           <div key={notification.id}>
-          <NotificationItem notification={notification}/>
+          <NotificationItem notification={notification} notifications={myNotifications} setNotifications={setNotifications}/>
         </div>
         ))
       }

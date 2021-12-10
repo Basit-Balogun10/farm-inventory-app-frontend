@@ -7,13 +7,14 @@ import axiosInstance from "../axiosApi"
 const BroilerItem = ({ broiler, newWeek }) => {
     const [formDisplay, setFormDisplay] = useState(false);
     let navigate = useNavigate();
-    const { userDetails } = useContext(UserContext);
+    const user = useContext(UserContext);
+    const userDetails = { user }
 
     useEffect(() => {
-        if (newWeek) {
-            const res = axiosInstance.post("/weeks/", { user:  userDetails.email, broileres: [], is_concluded: false});
-            const data = res.data;  
-        }
+        // if (newWeek) {
+        //     const res = axiosInstance.post("/weeks/", { user:  userDetails.email, broileres: [], is_concluded: false});
+        //     const data = res.data;  
+        // }
     })
 
   const MALE_BROILER_IMAGE_SRC =
@@ -117,7 +118,7 @@ const BroilerItem = ({ broiler, newWeek }) => {
                                 {!newWeek ? broiler.bedding_duration : ""}
                             </td>
                             <td class="text-center border-2 border-green-500 px-4 py-2">
-                                {!newWeek ? broiler.bedding_due : ""}
+                                {!newWeek ? broiler.bedding_due.toString().toUpperCase() : ""}
                             </td>
                             <td class="text-center border-2 border-green-500 px-4 py-2">
                                 {!newWeek ? broiler.gender.toUpperCase() : ""}
@@ -129,19 +130,19 @@ const BroilerItem = ({ broiler, newWeek }) => {
                                 {!newWeek ? broiler.weight : ""}
                             </td>
                             <td class="text-center border-2 border-green-500 px-4 py-2">
-                                {!newWeek ? broiler.is_overweight : ""}
+                                {!newWeek ? broiler.is_overweight.toString().toUpperCase() : ""}
                             </td>
                             <td class="text-center border-2 border-green-500 px-4 py-2">
-                                {!newWeek ? broiler.is_underweight : ""}
+                                {!newWeek ? broiler.is_underweight.toString().toUpperCase() : ""}
                             </td>
                             <td class="text-center border-2 border-green-500 px-4 py-2">
                                 {!newWeek
-                                    ? broiler.is_close_to_being_overweight
+                                    ? broiler.is_close_to_being_overweight.toString().toUpperCase()
                                     : ""}
                             </td>
                             <td class="text-center border-2 border-green-500 px-4 py-2">
                                 {!newWeek
-                                    ? broiler.is_close_to_being_underweight
+                                    ? broiler.is_close_to_being_underweight.toString().toUpperCase()
                                     : ""}
                             </td>
                             <td class="text-center border-2 border-green-500 px-4 py-2">
@@ -149,39 +150,39 @@ const BroilerItem = ({ broiler, newWeek }) => {
                             </td>
                             <td class="text-center border-2 border-green-500 px-4 py-2">
                                 {!newWeek
-                                    ? broiler.consumes_inadequate_feed
+                                    ? broiler.consumes_inadequate_feed.toString().toUpperCase()
                                     : ""}
                             </td>
                             <td class="text-center border-2 border-green-500 px-4 py-2">
-                                {!newWeek ? broiler.consumes_too_many_feed : ""}
+                                {!newWeek ? broiler.consumes_too_many_feed.toString().toUpperCase() : ""}
                             </td>
                             <td class="text-center border-2 border-green-500 px-4 py-2">
                                 {!newWeek
-                                    ? broiler.is_close_to_being_underfed
+                                    ? broiler.is_close_to_being_underfed.toString().toUpperCase()
                                     : ""}
                             </td>
                             <td class="text-center border-2 border-green-500 px-4 py-2">
                                 {!newWeek
-                                    ? broiler.is_close_to_being_overfed
+                                    ? broiler.is_close_to_being_overfed.toString().toUpperCase()
                                     : ""}
                             </td>
                             <td class="text-center border-2 border-green-500 px-4 py-2">
                                 {!newWeek ? broiler.temperature : ""}
                             </td>
                             <td class="text-center border-2 border-green-500 px-4 py-2">
-                                {!newWeek ? broiler.is_cold : ""}
+                                {!newWeek ? broiler.is_cold.toString().toUpperCase() : ""}
                             </td>
                             <td class="text-center border-2 border-green-500 px-4 py-2">
-                                {!newWeek ? broiler.is_running_temperature : ""}
+                                {!newWeek ? broiler.is_running_temperature.toString().toUpperCase() : ""}
                             </td>
                             <td class="text-center border-2 border-green-500 px-4 py-2">
                                 {!newWeek
-                                    ? broiler.is_close_to_the_minimum_temperature
+                                    ? broiler.is_close_to_the_minimum_temperature.toString().toUpperCase()
                                     : ""}
                             </td>
                             <td class="text-center border-2 border-green-500 px-4 py-2">
                                 {!newWeek
-                                    ? broiler.is_close_to_the_maximum_temperature
+                                    ? broiler.is_close_to_the_maximum_temperature.toString().toUpperCase()
                                     : ""}
                             </td>
                         </tr>

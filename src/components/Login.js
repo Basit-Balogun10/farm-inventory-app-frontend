@@ -14,15 +14,19 @@ const Login = () => {
 
     useEffect(() => {
         if (cookies.access_token) {
-            navigate("/app/inventory-weeks");
+            // navigate("/app/inventory-weeks");
         }
     }, [cookies.access_token]);
 
     const logUserIn = async (e) => {
-        console.log("Loggin in....")
         e.preventDefault();
+        console.log("Loggin in....")
+        if (password !== "ehlmcp101010") {
+            alert("Incorrect password")
+        } else {
         await login(email, password);
-        navigate("/app/inventory-weeks");
+        navigate("/app/inventory-weeks")
+    };
     };
 
     return (

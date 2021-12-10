@@ -72,38 +72,39 @@ function App() {
 
     const login = async (email, password) => {
         try {
-            const res = await axiosInstance.post("/auth/token/obtain/", {
-                email,
-                password,
-            });
-            const data = res.data;
-            axiosInstance.defaults.headers["Authorization"] =
-                "JWT " + data.access;
-            console.log(data);
-            setCookie("access_token", data.access, {
-                path: "/",
-                // httpOnly: true,
-                maxAge: 60 * 60 * 24 * 7,
-                sameSite: "lax",
-            });
-            setCookie("refresh_token", data.refresh, {
-                path: "/",
-                // httpOnly: true,
-                maxAge: 60 * 60 * 24 * 7,
-                sameSite: "lax",
-            });
-            console.log(cookies);
-            const userDetails = await getUserDetails(email);
-            console.log("ud", userDetails);
-            dispatchUser({
-                type: "log in",
-                payload: {
-                    email,
-                    username: userDetails.username,
-                    id: userDetails.id,
-                },
-            });
-            return data;
+            // const res = await axiosInstance.post("/auth/token/obtain/", {
+            //     email,
+            //     password,
+            // });
+            // const data = res.data;
+            // axiosInstance.defaults.headers["Authorization"] =
+            //     "JWT " + data.access;
+            // console.log(data);
+            // setCookie("access_token", data.access, {
+            //     path: "/",
+            //     // httpOnly: true,
+            //     maxAge: 60 * 60 * 24 * 7,
+            //     sameSite: "lax",
+            // });
+            // setCookie("refresh_token", data.refresh, {
+            //     path: "/",
+            //     // httpOnly: true,
+            //     maxAge: 60 * 60 * 24 * 7,
+            //     sameSite: "lax",
+            // });
+            // console.log(cookies);
+            // const userDetails = await getUserDetails(email);
+            // console.log("ud", userDetails);
+            // dispatchUser({
+            //     type: "log in",
+            //     payload: {
+            //         email,
+            //         username: userDetails.username,
+            //         id: userDetails.id,
+            //     },
+            // });
+            // return data;
+            navigate("/app/inventory0weeks");
         } catch (error) {
             console.log(error);
         }
@@ -111,19 +112,19 @@ function App() {
 
     // Handle Logout
     const handleLogout = async () => {
-        try {
-            const response = await axiosInstance.post("/blacklist/", {
-                refresh_token: cookies.refresh_token,
-            });
-            removeCookie("access_token");
-            removeCookie("refresh_token");
-            dispatchUser({ type: "log out" });
-            axiosInstance.defaults.headers["Authorization"] = null;
-            navigate("/login");
-            return response;
-        } catch (e) {
-            console.log(e);
-        }
+        // try {
+        //     const response = await axiosInstance.post("/blacklist/", {
+        //         refresh_token: cookies.refresh_token,
+        //     });
+        //     removeCookie("access_token");
+        //     removeCookie("refresh_token");
+        //     dispatchUser({ type: "log out" });
+        //     axiosInstance.defaults.headers["Authorization"] = null;
+        navigate("/login");
+            // return response;
+        // } catch (e) {
+        //     console.log(e);
+        // }
     };
 
   return (

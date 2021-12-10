@@ -37,6 +37,7 @@ const MainContent = ({ sidebarCollapse, setSidebarCollapse }) => {
             />
             <FaSignOutAlt
                 className="cursor-pointer text-2xl"
+                onClick={() => navigate("/login")}
             />
           </div>
         </div>

@@ -1,6 +1,6 @@
 import React from 'react';
 
-const NotificationItem = ({notification}) => {
+const NotificationItem = ({notification, notifications, setNotifications}) => {
   return (
     <div className="shadow-md my-4 flex justify-between items-center">
       <div className={`flex-1 p-4 flex justify-start items-center space-x-4 ${notification.status === "warning" ? "bg-red-200" : ""} ${notification.status === "info" ? "bg-blue-200" : ""} ${notification.status === "success" ? "bg-green-200" : ""}`}>
